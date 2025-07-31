@@ -1,0 +1,4 @@
+# ignore pytorch ckpt
+*.ckpt
+*.pt
+*.pth
