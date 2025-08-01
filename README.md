@@ -77,7 +77,7 @@ To train the Tiny model variant, either:
 > For Base model, the gradient accumulation was set to 8, while for Tiny model, it was set to 32. Adjust 'gradient_accumulation_steps' in `configs/train.py` if needed.
 
 > [!NOTE]
-> Currently training only supports a batch size of 1, to accomodate a larger batch size, modify the [following lines](https://github.com/ayoussf/VMatcher/blob/67b5b2a5e9309316ae5e17eb94ac52d4a4ef6dfb/VMatch/src/VMatcher/VMatcher.py#L108) in `VMatcher.py` to loop over batch samples, followed by stacking the outputs post the loop.
+> Currently training only supports a batch size of 1, to accomodate a larger batch size, modify the [following lines](https://github.com/ayoussf/VMatcher/blob/46cba063cb28908750e8b56b0d4a3a6ce72c56ce/VMatch/src/VMatcher/VMatcher.py#L108C9-L155C143) in `VMatcher.py` to loop over batch samples, followed by stacking the outputs post the loop.
 
 
 ### Training Data
