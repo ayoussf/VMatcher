@@ -92,7 +92,7 @@ python data/megadepth/process_megadepth_images.py --root_directory /path_to_mega
 ```
 
 **Training Indices**
-- [Download from Google Drive](https://drive.google.com/file/d/1_i6ipLVFQ8JGksSpXEbi710SS5lUzJrc/view?usp=drive_link)
+- [Download from Google Drive](https://drive.google.com/file/d/1O3691mkd3hwWDRJDwM3mgl9kLxmPURoe/view?usp=drive_link)
 - Or run: `gdown --id 1O3691mkd3hwWDRJDwM3mgl9kLxmPURoe`
 
 **Directory Setup**
