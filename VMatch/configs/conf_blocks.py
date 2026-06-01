@@ -85,7 +85,7 @@ class Fine_preprocess:
 class Fine_matching:
     local_regress_temperature: float = 10.0
     local_regress_slicedim: int = 8
-    half: bool = False
+    fp16: bool = False
     sparse_spvs: bool = True
 
 @dataclasses.dataclass

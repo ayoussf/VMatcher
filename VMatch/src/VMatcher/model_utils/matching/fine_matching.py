@@ -16,7 +16,7 @@ class FineMatching(nn.Module):
         self.config = config
         self.local_regress_temperature = config.local_regress_temperature
         self.local_regress_slicedim = config.local_regress_slicedim
-        self.fp16 = config.half
+        self.fp16 = config.fp16
         self.validate = False
 
     def forward(self, feat_0, feat_1, data):

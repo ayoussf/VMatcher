@@ -11,6 +11,7 @@
 
 <p align="center">
   <a href="#installation">Installation</a> •
+  <a href="#demo">Demo</a> •
   <a href="#configurations">Configurations</a> •
   <a href="#training">Training</a> •
   <a href="#evaluations">Evaluations</a> •
@@ -49,16 +50,28 @@ cd ../..
 > [!WARNING]
 > Triton>2.0.0 causes slower runtime at lower resolutions. Install Triton==2.0.0 for optimal performance.
 
+## Demo
+
+To run the demo:
+
+```bash
+python demo.py --model_type base
+```
+
+Additional options are available, including the Tiny model variant, optimised inference mode, mixed precision, custom image pairs, and image resizing settings. For a complete list of available configurations, run:
+
+```bash
+python demo.py -h
+```
+
+> [!NOTE]
+> The script automatically checks for and downloads the required model checkpoint (`base.ckpt` or `tiny.ckpt`) into the `checkpoints/` directory if it is not already present locally.
+
 ## Configurations
 
 The main configuration file is located at `configs/conf_blocks.py`, which controls both training and testing parameters. Specialised configurations can be found in:
 - `configs/train.py` - Training specific settings
 - `configs/test.py` - Testing specific settings
-
-To view all available configurations:
-```bash
-python engine.py -h
-```
 
 ## Training
 
@@ -73,10 +86,10 @@ To train the Tiny model variant, either:
 - Run: `python engine.py --task=train --config.train.mamba-config.num-layers=14`
 
 > [!NOTE]
-> For Base model, the gradient accumulation was set to 8, while for Tiny model, it was set to 32. Adjust 'gradient_accumulation_steps' in `configs/train.py` if needed.
+> For the Base model, the gradient accumulation factor was set to 8, while for the Tiny model, it was set to 32. Adjust 'gradient_accumulation_steps' in `configs/train.py` if needed.
 
 > [!NOTE]
-> Currently training only supports a batch size of 1, to accomodate a larger batch size, modify the [following lines](https://github.com/ayoussf/VMatcher/blob/46cba063cb28908750e8b56b0d4a3a6ce72c56ce/VMatch/src/VMatcher/VMatcher.py#L108C9-L155C143) in `VMatcher.py` to loop over batch samples, followed by stacking the outputs post the loop.
+> Currently training only supports a batch size of 1, to accommodate a larger batch size, modify the [following lines](https://github.com/ayoussf/VMatcher/blob/46cba063cb28908750e8b56b0d4a3a6ce72c56ce/VMatch/src/VMatcher/VMatcher.py#L108C9-L155C143) in `VMatcher.py` to loop over batch samples, followed by stacking the outputs post the loop.
 
 ### Training Data
 
@@ -149,6 +162,7 @@ If you encounter any bugs or issues, please feel free to [open an issue](https:/
 Special thanks to the authors of [ELoFTR](https://github.com/zju3dv/ELoFTR), as a significant portion of their codebase was utilised in this project.
 
 ## Citation
+
 If you find this work useful, please consider citing the paper:
 
 ```bibtex
